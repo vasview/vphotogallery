@@ -49,6 +49,8 @@ group :development do
   gem 'devise'
 
   gem 'activeadmin'
+
+  gem 'paperclip'
 	  
 end
 
