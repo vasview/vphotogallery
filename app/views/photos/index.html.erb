@@ -1,6 +1,6 @@
 <h2>All my photos</h2>
 
- 
+ <% if user_signed_in? %>
 	<p><%= link_to 'New photo', new_photo_path, class: 'btn btn-primary'%></p>
 
 
@@ -13,12 +13,9 @@
 
 		<% current_user.photos.each do |photo| %>
 			<tr>
+								
+				<td><%= photo.caption %></td>
 				
-				<% if photo.title.nil? %>
-					<td>No title</td>
-				<% else %> 
-					<td><%= photo.title %></td>
-				<% end %>
 				<td><%= image_tag photo.image.url(:small) %></td>
 				
 				<td>
@@ -28,3 +25,23 @@
 			</tr>	
 		<% end %>
 	</table>
+<% else %>
+	<table class="table table-striped">
+		<tr>
+			<th>Title</th>
+			<th>Photo</th>
+			
+		</tr>
+
+		<% @photos.each do |photo| %>
+			<tr>
+								
+				<td><%= photo.caption %></td>
+				
+				<td><%= image_tag photo.image.url(:small) %></td>
+				
+			</tr>	
+		<% end %>
+	</table>
+<% end %>
+
