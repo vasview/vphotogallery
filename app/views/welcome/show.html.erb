@@ -1,2 +1,13 @@
-<h1>Welcome#show</h1>
-<p>Find me in app/views/welcome/show.html.erb</p>
+<h1><%= @photo.caption %></h1>
+<div class="">
+	<%= image_tag @photo.image.url(:large) %>
+</div>
+
+<div>
+Avarage score: <%= @rating %>
+</div>
+<h2><%= link_to 'Comments', '#', id: 'comments-link' %></h2>
+<section id="comment-section">
+  <ul id="comments">
+    <%= render @photo.ucomments %>
+  </ul>
