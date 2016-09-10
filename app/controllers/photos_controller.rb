@@ -5,6 +5,7 @@ class PhotosController < ApplicationController
 
   def show
   	@photo = Photo.find(params[:id])
+    @rating = @photo.ucomments.average(:score)
   end
 
   def new

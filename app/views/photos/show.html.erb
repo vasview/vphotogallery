@@ -1,4 +1,18 @@
-<h1><%= @photo.title %></h1>
+<h1><%= @photo.caption %></h1>
 <div class="">
 	<%= image_tag @photo.image.url(:large) %>
 </div>
+
+<div>
+Avarage score: <%= @rating %>
+</div>
+<h2><%= link_to 'Comments', '#', id: 'comments-link' %></h2>
+<section id="comment-section">
+  <ul id="comments">
+    <%= render @photo.ucomments %>
+  </ul>
+<% if current_user %>
+  <h2>Add a comment:</h2>
+  <%= render 'ucomments/form_ucomment' %>
+ <% end %>
+</section>  

@@ -1,0 +1,19 @@
+<% if ucomment.present? %>
+  <li>
+      <p>
+        By: <strong><%= ucomment.user.name %></strong>, 
+        score <%= ucomment.score %>
+      </p>
+
+      <p>
+        <strong><%= ucomment.body %></strong>
+      </p>  
+      
+      <% if user_signed_in? && ucomment.in?(current_user.ucomments) %>     	
+    	  <p>
+    	    <%= link_to 'Delete', [ucomment.photo, ucomment], method: :delete %>
+    	  </p>
+    	<% end %>
+    
+  </li>
+<% end %>
