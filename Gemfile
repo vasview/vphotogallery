@@ -48,6 +48,7 @@ group :development do
 
   gem 'devise'
 
-  
+  gem 'activeadmin'
+	  
 end
 
