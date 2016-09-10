@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first
 
-User.create(name: 'Admin', email: 'admin@example.com', password: '123456', password_confirmation: '123456')
+User.create(name: 'Admin', email: 'admin@example.com', password: '123456', password_confirmation: '123456', admin: true)
 
 10.times do
 	u = User.new
@@ -14,5 +14,6 @@ User.create(name: 'Admin', email: 'admin@example.com', password: '123456', passw
 	u.email = Faker::Internet.email
 	u.password = '123456'
 	u.password_confirmation = '123456'
+	u.admin = 'false'
 	u.save
 end
