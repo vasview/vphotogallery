@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
+  get 'welcome/show'
+
   root 'photos#index'
 
   ActiveAdmin.routes(self)
